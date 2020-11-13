@@ -24,3 +24,14 @@ class Solution:
             if arr[i] != 1:
                 return i + delta
         return mismatchRange
+
+    
+    
+# class Solution:
+#     # @param A : tuple of integers
+#     # @return an integer
+#     def repeatedNumber(self, A):
+#         sum = 0
+#         for elem in A:
+#             sum += elem
+#         return int(sum - (len(A) - 1) * len(A) / 2)
