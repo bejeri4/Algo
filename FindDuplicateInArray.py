@@ -1,3 +1,4 @@
+# https://www.interviewbit.com/problems/find-duplicate-in-array/
 class Solution:
     # @param A : tuple of integers
     # @return an integer
