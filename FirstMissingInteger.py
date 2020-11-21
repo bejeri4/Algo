@@ -9,14 +9,17 @@ class Solution:
     # @param A : list of integers
     # @return an integer
     def firstMissingPositive(self, A):
-        for i in range(len(A)):
+        i = 0
+        while i < len(A):
             elem = A[i]
             if elem == i + 1:
+                i += 1
                 continue
             if elem > 0 and elem <= len(A):
                 if A[elem - 1] != elem:
                     swap(A, elem - 1, i)
                     i -= 1
+            i += 1
                     
         for i in range(len(A)): 
             if A[i] != i + 1:
