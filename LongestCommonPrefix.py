@@ -6,7 +6,7 @@ def setString(arr, s):
         if arr[i] != s[i]:
             break
         i += 1
-    return arr[:i]
+    del arr[i:]
 
 class Solution:
     # @param A : list of strings
@@ -16,5 +16,5 @@ class Solution:
             return ""
         arr = list(A[0])
         for s in A[1:]:
-            arr = setString(arr, s)
+            setString(arr, s)
         return "".join(arr)
