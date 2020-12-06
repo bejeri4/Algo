@@ -11,8 +11,8 @@ class Triple:
     def __eq__(self, other):
         return self.ls[0] == other.ls[0] and self.ls[1] == other.ls[1] and self.ls[2] == other.ls[2]
 
-def getPairsForIndex(arr, index):
-    result = set()
+
+def extendForIndex(arr, index, resultSet):
     i = 0
     j = len(arr) - 1
     while i < j:
@@ -28,9 +28,8 @@ def getPairsForIndex(arr, index):
             elif s < 0:
                 i += 1
             else:
-                result.add(Triple(ls))
+                resultSet.add(Triple(ls))
                 i += 1
-    return result
 
 
 class Solution:
@@ -40,7 +39,7 @@ class Solution:
         resultSet = set()
         A.sort()
         for i in range(len(A)):
-            resultSet |= getPairsForIndex(A, i)
+            extendForIndex(A, i, resultSet)
         result = []
         for elem in resultSet:
             result.append(elem.ls)
