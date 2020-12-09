@@ -11,8 +11,7 @@ def insert(head, val):
     newNode = ListNode(val)
     if val < head.val:
         newNode.next = head
-        head = newNode
-        return head
+        return newNode
     cur = head
     last = cur
     while cur != None:
