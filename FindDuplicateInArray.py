@@ -1,37 +1,28 @@
 # https://www.interviewbit.com/problems/find-duplicate-in-array/
+
 class Solution:
     # @param A : tuple of integers
     # @return an integer
     def repeatedNumber(self, A):
-        matcher = [0] * (int(math.log(len(A) + 1, 2)) + 1)
+        n = len(A) - 1
+        root = math.ceil(math.sqrt(n))
+        buckets = [0] * root
         for elem in A:
-            log = int(math.log(elem, 2))
-            matcher[log] += 1
-        mismatchRange = -1
-        for i in range(len(matcher)):
-            if 2**i != matcher[i]:
-                mismatchRange = i
+            buckets[(elem - 1) // root] += 1
+        lastBuckIndex = n // root
+        badSegment = None
+        for i in range(len(buckets)):
+            if buckets[i] > root:
+                badSegment = i
                 break
-        if mismatchRange == -1:
-            return -1
-        delta = 2**mismatchRange
-        arr = [0] * delta
+        if badSegment == None:
+            badSegment = lastBuckIndex
+        badBucket = [0] * root
         for elem in A:
-            log = int(math.log(elem, 2))
-            if log == mismatchRange:
-                arr[(elem - delta)] += 1
-        for i in range(len(arr)):
-            if arr[i] != 1:
-                return i + delta
-        return mismatchRange
-
-    
-    
-# class Solution:
-#     # @param A : tuple of integers
-#     # @return an integer
-#     def repeatedNumber(self, A):
-#         sum = 0
-#         for elem in A:
-#             sum += elem
-#         return int(sum - (len(A) - 1) * len(A) / 2)
+            index = (elem - 1) // root
+            if index == badSegment:
+                localIndex = elem % root
+                badBucket[localIndex] += 1
+                if badBucket[localIndex] > 1:
+                    return elem
+        return -1
