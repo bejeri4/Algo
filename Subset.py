@@ -1,3 +1,5 @@
+# https://www.interviewbit.com/problems/subset/
+
 from functools import cmp_to_key
 
 def generate(A, curIndex, result, soFar):
