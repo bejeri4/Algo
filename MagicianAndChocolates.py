@@ -10,7 +10,7 @@ class Solution:
 	    result = 0
 	    ls = []
 	    for elem in B:
-    	    heapq.heappush(ls, (1 / elem, elem))
+    	    	heapq.heappush(ls, (1 / elem, elem))
 	    while A > 0 and ls:
 	        elem = heapq.heappop(ls)[1]
 	        result += elem
