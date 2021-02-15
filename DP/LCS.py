@@ -1,7 +1,5 @@
 # https://atcoder.jp/contests/dp/tasks/dp_f
 
-import math
-
 a = input()
 b = input()
 
@@ -26,7 +24,7 @@ for i in range(len(a) - 1, -1, -1):
             dp[i][j] = horiz
         elif maxLen == len(vert):
             dp[i][j] = vert
-        if maxLen == len(diag):
+        elif maxLen == len(diag):
             dp[i][j] = diag
 
 print(dp[0][0])
