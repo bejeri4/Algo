@@ -6,8 +6,6 @@ class Solution:
     # @param d : integer
     # @return an integer
     def pow(self, x, n, d):
-        if x == 0:
-            return 0
         result = 1
         while n != 0:
             if n % 2 == 1:
