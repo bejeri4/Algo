@@ -10,8 +10,8 @@ class Solution:
         while n != 0:
             if n % 2 == 1:
                 result = (result * x) % d
-            n /= 2
             x = (x * x) % d
+            n //= 2
         return result
 
     
