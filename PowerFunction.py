@@ -15,3 +15,17 @@ class Solution:
             n /= 2
             x = (x * x) % d
         return result
+
+    
+    
+    
+def power(x, n, d):
+    if n == 0:
+        return 1
+    if n == 1:
+        return x
+    tmp = power(x, n // 2, d)
+    result = (tmp * tmp) % d
+    if n % 2 == 1:
+        result = (result * x) % d
+    return result
