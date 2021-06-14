@@ -9,7 +9,7 @@ def cmp(a, b):
 class Solution:
     def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
         if not position:
-                return 0
+            return 0
         arr = []
         for i in range(len(position)):
             arr.append((position[i], speed[i]))
