@@ -1,3 +1,5 @@
+# O(n ^ 2) O(n ^ 2)
+
 class Solution:
     def countSubstrings(self, s: str) -> int:
         dp = []
@@ -19,4 +21,23 @@ class Solution:
                         dp[left][right] = False
                 if dp[left][right]:
                     result += 1
+        return result
+
+
+# O(n ^ 2) O(1)
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+        result = 0
+        for c in range(1, 2 * len(s)):
+            left, right = None, None
+            if c % 2 == 0:
+                left = c // 2 - 1
+                right = c // 2
+            else:
+                left = c // 2
+                right = c // 2
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                result += 1
+                left -= 1
+                right += 1
         return result
